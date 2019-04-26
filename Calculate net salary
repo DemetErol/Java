@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+public class SalaryCalculator {
+	
+public int netSalary;
+private String departmentName;
+
+//an argument constructor
+//implicit call to Object constructor occurs here 
+
+public SalaryCalculator(String departmentName) {
+	 this.departmentName = departmentName; }
+//end SalaryCalculator constructor
+
+// return department name
+public String getDepartmentName() {
+	return departmentName; }
+//end method getDepartmentName
+
+//set department name
+public void setDepartmentName(String departmentName) {
+	this.departmentName = departmentName; }
+//end method setDepartmentName
+
+//user's salary
+public void inputGrossSalary() {
+
+Scanner x=new Scanner(System.in);	 
+System.out.println("enter a gross salary");
+int salary=x.nextInt();
+calculateNetSalary(salary);
+}
+//end method inputGrossSalary
+
+//Computing the net salary        
+public void calculateNetSalary(int salary)
+{                                                           
+if(salary>=1000 && salary<=1999)	
+{
+	netSalary=salary*95/100;
+}
+else if(salary>=2000 && salary<=3999)
+{
+	netSalary=salary*90/100;
+}
+else if(salary>=4000 && salary<5999)
+{
+	netSalary=salary*85/100;
+}
+else if(salary>=6000)
+{
+	netSalary=salary*80/100;
+}
+else {
+	{
+		System.out.println("enter more than $1000");
+	}
+} }
+//end method calculateNetSalary
+
+//print department and net salary.
+	public void displayMessage() {
+		System.out.println("welcome to "+departmentName);
+
+	}
+	public void displayNetSalary() {
+		System.out.println("net salary: $"+netSalary );
+}	// end print methods 
+
+}// end class SalaryCalculator
+	
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+    //instantiate SalaryCalculator object
+	SalaryCalculator mySalarycalculator = new SalaryCalculator("ıt department");
+	
+	mySalarycalculator.displayMessage();		
+	mySalarycalculator.inputGrossSalary();
+	mySalarycalculator.displayNetSalary();
+	
+	} //end main
+	}//end Test class
+ 
